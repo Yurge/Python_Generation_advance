@@ -1,12 +1,11 @@
-degree = 48
-matrix = [[2, 3],
-          [4, 5]]
+row_col = int(input())          # квадратная матрица
+matrix = [[int(i) for i in input().split()] for _ in range(row_col)]
+degree = int(input())           # степень
+first_matrix = matrix.copy()    # сохраняем первоначальные данные
 
-first_matrix = [[2, 3],
-                [4, 5]]
 
 for _ in range(degree - 1):
-    new_matrix = [[0, 0], [0, 0]]
+    new_matrix = [[0 for _ in range(row_col)] for _ in range(row_col)]
     for i in range(len(matrix)):
         for j in range(len(matrix[0])):
             row = matrix[i]
@@ -15,4 +14,4 @@ for _ in range(degree - 1):
     matrix = new_matrix.copy()
 
 for row in matrix:
-    print(row)
+    print(*row)
